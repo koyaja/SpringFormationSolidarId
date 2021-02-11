@@ -1,7 +1,10 @@
 package com.solidarit.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.core.env.Environment;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +19,12 @@ public class DemoApplication {
 
 
 	private UUID id;
+
+	@Value("${app.version}")
+	private String version;
+
+	@Autowired
+	private Environment env;
 
 	Map map = new HashMap();
 
@@ -66,5 +75,11 @@ public class DemoApplication {
 	public String all(){
 		return "";
 	}
+
+
+	@GetMapping("/")
+		public String version(){
+		return "Welcome to  "+env.getProperty("spring.application.name")+ " Version: "+version;
+		}
 
 }

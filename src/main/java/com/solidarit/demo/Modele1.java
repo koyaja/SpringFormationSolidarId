@@ -1,9 +1,14 @@
 package com.solidarit.demo;
 
-import java.util.Objects;
 
+import javax.persistence.*;
+import java.util.Objects;
+@Entity( name = "PERSONNE")
 public class Modele1 {
 
+    @Id
+    @GeneratedValue( strategy = GenerationType.IDENTITY)
+   @Column(name = "idPersonne")
     private Integer id;
     private String nom;
     private String prenom;
