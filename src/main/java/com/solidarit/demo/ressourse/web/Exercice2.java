@@ -1,6 +1,7 @@
-package com.solidarit.demo;
+package com.solidarit.demo.ressourse.web;
 
 
+import com.solidarit.demo.entities.Modele1;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;

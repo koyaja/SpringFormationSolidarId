@@ -1,4 +1,4 @@
-package com.solidarit.demo;
+package com.solidarit.demo.entities;
 
 
 import javax.persistence.*;

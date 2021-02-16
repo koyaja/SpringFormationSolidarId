@@ -1,4 +1,4 @@
-package com.solidarit.demo;
+package com.solidarit.demo.ressourse.web;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
