@@ -9,4 +9,6 @@ public interface Modele1Repository extends JpaRepository<Modele1,Integer> {
     Modele1 findByNom(String name);
     Modele1 findByNomLike(String name);
    List<Modele1>  findByNomContaining(String name);
+   List<Modele1>  findByNomContainingOrPrenomContaining(String name, String prenom);
+   List<Modele1>  findByNomContainingAndPrenomContaining(String name, String prenom);
 }

@@ -2,25 +2,22 @@ package com.solidarit.demo.ressourse.web;
 
 
 import com.solidarit.demo.entities.Modele1;
-import com.solidarit.demo.repositories.Modele1Repository;
-import com.solidarit.demo.services.ModeleService;
 import com.solidarit.demo.services.impl.ModeleServiceImp;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/exo2bd")
 public class Exercice2Bd {
 
-    @Autowired
-   private ModeleServiceImp modeleService;
+    // @Autowired
+   private final ModeleServiceImp modeleService;
 
-    public Exercice2Bd(){
-
+    public Exercice2Bd(ModeleServiceImp modeleService) {
+        this.modeleService = modeleService;
     }
+
 
     @GetMapping("/list")
     public List<Modele1> getAll(){
@@ -42,6 +39,11 @@ public class Exercice2Bd {
     public List<Modele1> search(@RequestParam String value){
 
         return modeleService.search(value);
+    }
+    @GetMapping("searchnp")
+    public List<Modele1> searchNp(@RequestParam(name = "n") String nom, @RequestParam(name = "p") String prenom){
+
+        return modeleService.searchbyNp(nom,prenom);
     }
 
     @PutMapping("/update/{id}")

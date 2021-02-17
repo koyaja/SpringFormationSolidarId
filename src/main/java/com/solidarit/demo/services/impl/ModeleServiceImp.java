@@ -12,8 +12,12 @@ import java.util.logging.Logger;
 @Service
 public class ModeleServiceImp implements ModeleService {
     private static Logger logger = Logger.getLogger(String.valueOf(ModeleServiceImp.class));
+
     @Autowired
     private Modele1Repository modele1Repository;
+
+
+
     @Override
     public Modele1 save(Modele1 modeladd) {
         logger.info("Add modele");
@@ -24,10 +28,10 @@ public class ModeleServiceImp implements ModeleService {
     public Modele1 update(Modele1 model, Integer id) {
         Modele1 ancienModel = modele1Repository.findById(id).get();
 
-        if(!model.getNom().isBlank()) {
+        if(model.getNom()!= null && !model.getNom().isBlank()) {
             ancienModel.setNom(model.getNom());
         }
-        if(!model.getPrenom().isBlank()) {
+        if( model.getPrenom()!= null && !model.getPrenom().isBlank()) {
             ancienModel.setPrenom(model.getPrenom());
         }
 
@@ -57,6 +61,11 @@ public class ModeleServiceImp implements ModeleService {
 
     @Override
     public List<Modele1> search(String value) {
-        return modele1Repository.findByNomContaining(value);
+        return modele1Repository.findByNomContainingOrPrenomContaining(value, value);
+    }
+
+    @Override
+    public List<Modele1> searchbyNp(String nom, String prenom) {
+        return modele1Repository.findByNomContainingAndPrenomContaining(nom, prenom);
     }
 }

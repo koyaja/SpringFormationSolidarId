@@ -13,4 +13,5 @@ public interface ModeleService {
 
     public List<Modele1> list();
     public List<Modele1> search(String value);
+    public List<Modele1> searchbyNp(String nom, String prenom);
 }
