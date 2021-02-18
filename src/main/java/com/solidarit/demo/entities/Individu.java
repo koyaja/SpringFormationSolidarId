@@ -17,7 +17,7 @@ public class Individu {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String fistName;
-    private  String LastName;
+    private  String lastName;
     private int age;
     private Date dateCreated;
 
