@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+    <title>Abonnement</title>
+</head>
+<body>
+<h1>Person List</h1>
+<a th:href="@{/addabonne}">Ajout abonnrment</a>
+<br/><br/>
+<div>
+    <table border="1">
+        <tr>
+            <th>Numero abonné</th>
+            <th>type abonnement</th>
+        </tr>
+        <tr th:each ="ab : ${abs}">
+            <td th:utext="${ab.numeroAbonne}">...</td>
+            <td th:utext="${ab.typeAbonnement}">...</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

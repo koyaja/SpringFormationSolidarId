@@ -1,4 +1,4 @@
-package com.solidarit.demo.ressourse.web;
+package com.solidarit.demo.ressourse.rest;
 
 
 import com.solidarit.demo.entities.Modele1;

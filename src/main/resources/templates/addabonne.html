@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+    <title>Ajouter Abonnement</title>
+</head>
+<body>
+<h1>Ajout Abonnement</h1>
+<form class="formulaire" th:action="@{/addabonne}"
+      th:object="${abs}" method="POST">
+    Numero abonnement:
+    <input type="text" th:field="*{numeroAbonne}" />
+    <br/>
+   Type Abonnement:
+    <input type="text" th:field="*{typeAbonnement}" />
+    <br/>
+    <input type="submit" value="Valider" />
+</form>
+</body>
+</html>
